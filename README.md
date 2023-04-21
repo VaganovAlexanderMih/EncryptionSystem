@@ -40,7 +40,7 @@ python3 main.py --help
 
 ![Printing help](src/images/printing_help.png)
 
-![Printed lines after installation](src/images/printed_after_installation)
+![Printed lines after installation](src/images/printed_after_installation.png)
 
 
 ## Examples of using
