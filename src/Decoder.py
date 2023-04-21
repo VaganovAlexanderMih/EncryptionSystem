@@ -1,3 +1,5 @@
+import helpers
+
 def DecoderVernamCipher(input_path, key_path, output_path):
     # helpers
     def xor_char(char1_bin, char2_bin):
@@ -66,27 +68,10 @@ def DecoderCaesarCipherWithKey(input_path, offset, output_path):
             # making string readable
             if string_.endswith('\n'):
                 string_ = string_[:-1]
-            final_string = ""
-            for letter in string_:
-                # if the symbol is in syntactic signs, then we set a fixed value
-                if (chr(ord(letter) + offset) in special_symbols):
-                    final_string += chr(ord(letter) + offset)
-                    continue
-                # else decoding symbols using key symbols
-                if (letter.lower() == letter):
-                    letter_ind = ord(letter) - ord('a')
-                    letter_ind += offset
-                    letter_ind %= (ord('z') - ord('a'))
-                    letter_ind += ord('a')
-                else:
-                    letter_ind = ord(letter) - ord('A')
-                    letter_ind += offset
-                    letter_ind %= (ord('Z') - ord('A'))
-                    letter_ind += ord('A')
-                final_string += chr(letter_ind)
+            final_string = helpers.caesar_cipher_coder(special_symbols, string_, offset)
         # writing the line to output file
-        uncrypted.write(final_string)
-        uncrypted.write('\n')
+            uncrypted.write(final_string)
+            uncrypted.write('\n')
     uncrypted.close()
 
 
@@ -102,39 +87,7 @@ def DecoderCaesarCipherWithoutKey(input_path, output_path):
                       'q': 0, 'r': 0, 's': 0, 't': 0, 'u': 0, 'v': 0, 'w': 0, 'x': 0,
                       'y': 0, 'z': 0}
     with open(input_path) as inp:
-        for string in inp:
-            for letter in string:
-                # counting symbols
-                count_symbols += 1
-                if (not(65 <= ord(letter) <= 90 or 97 <= ord(letter) <= 122)):
-                    continue
-                letter_counter[letter.lower()] += 1
-        # getting probabilities
-        for letter in letter_counter.keys():
-            letter_counter[letter] /= count_symbols
-            letter_counter[letter] *= 100
-        offsets = []
-        # getting probable offsets
-        for letter in letter_counter:
-            for ideal_letter in probability:
-                if (letter_counter[letter] >= probability[ideal_letter] - 0.25
-                    and letter_counter[letter] <= probability[ideal_letter] + 0.25):
-                    offsets.append(ord(letter) - ord(ideal_letter))
-        offsets.sort()
-        count = 0
-        max_count = 0
-        offset = 0
-        # getting most possible offset option
-        for i in range(len(offsets)):
-            if (i == 0):
-                continue
-            if (offsets[i - 1] == offsets[i]):
-                count += 1
-            else:
-                if (count > max_count):
-                    max_count = count
-                    offset = offsets[i - 1]
-                count = 0
+        offset = helpers.getting_offset(inp, letter_counter, probability)
         DecoderCaesarCipherWithKey(input_path, offset, output_path)
 
 
