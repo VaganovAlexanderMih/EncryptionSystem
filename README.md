@@ -27,7 +27,7 @@ To run, go to the command line and type
 ```
 git clone --branch dev git@github.com:VaganovAlexanderMih/PythonProjects.git EncryptionSystem
 cd EncryptionSystem
-pip install -r requirements.txt
+pip install -r requirentments.txt
 python3 main.py --help
 ```
 
