@@ -21,12 +21,14 @@ and randomly. You can find it in path that you left for the "key" option.
 
 ### Installation
 
-```
+
 To run, go to the command line and type 
+
+```
 git clone --branch dev git@github.com:VaganovAlexanderMih/PythonProjects.git EncryptionSystem
 cd EncryptionSystem
 pip install -r requirements.txt
-Then type "python3 main.py --help" to see all use cases.
+python3 main.py --help
 ```
 
 
@@ -45,13 +47,17 @@ Then type "python3 main.py --help" to see all use cases.
 Let's see how to work with Vernam cipher:
 
 Source file:
+
 ![Source](src/images/source.png)
 
 Command sequence to launch the program:
+
 ![Vernam cipher command](src/images/vernam_cipher_command.png)
 
 Key file:
+
 ![Key](src/images/key.png)
 
 Output file:
+
 ![Output](src/images/output.png)
