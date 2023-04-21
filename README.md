@@ -3,8 +3,9 @@
 
 ## Table of Contents
 - [About](https://github.com/VaganovAlexanderMih/EncryptionSystem/tree/dev#about)
-- [Installation]()
-- [Quick Start after installation]()
+- [Installation and use cases](https://github.com/VaganovAlexanderMih/EncryptionSystem/tree/dev#installation-and-use-cases)
+  - [Installation](https://github.com/VaganovAlexanderMih/EncryptionSystem/tree/dev#installation)
+  - [Quick Start after installation](https://github.com/VaganovAlexanderMih/EncryptionSystem/tree/dev#quick-start-after-installation)
 - [Examples of using](https://github.com/VaganovAlexanderMih/EncryptionSystem/tree/dev#examples-of-using)
 
 ## About
@@ -20,14 +21,13 @@ and randomly. You can find it in path that you left for the "key" option.
 
 ### Installation
 
-'''
+```
 To run, go to the command line and type 
-"git clone --branch dev git@github.com:VaganovAlexanderMih/PythonProjects.git PythonProjects"
-"cd PythonProjects"
-"cd EncryptionSystem"
-"pip install -r requirements.txt".
+git clone --branch dev git@github.com:VaganovAlexanderMih/PythonProjects.git EncryptionSystem
+cd EncryptionSystem
+pip install -r requirements.txt
 Then type "python3 main.py --help" to see all use cases.
-'''
+```
 
 
 ### Quick Start after installation:
