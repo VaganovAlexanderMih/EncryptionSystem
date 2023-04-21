@@ -1,7 +1,7 @@
-#Python encryption project.
+# Python encryption project.
 
 
-##About
+## About
 
 This [Encryption System](https://github.com/VaganovAlexanderMih/EncryptionSystem) can encrypt with the Caesar, Vigenere and Vernam ciphers,
 as well as decrypt them, and the Caesar cipher can be decrypted both with the use of a key (offset)
@@ -10,7 +10,7 @@ When you use Vigenere and Vernam ciphers, the key is generating automatically
 and randomly. You can find it in path that you left for the "key" option.
 
 
-##Installation
+## Installation
 
 1. To run, go to the command line and type 
 2. "git clone --branch dev git@github.com:VaganovAlexanderMih/PythonProjects.git PythonProjects"
@@ -20,7 +20,7 @@ and randomly. You can find it in path that you left for the "key" option.
 6. Then type "python3 main.py --help" to see all use cases.
 
 
-###How to use the program:
+### How to use the program:
 
 - Write "--source" or "-s" to set source to the file that needed to be coded/decoded
 - Write "--cipher" or "-c" to set cipher/decoder (Caesar to set the "Caesar cipher" then offset, Vernam to set "Vernam cipher", Vigenere to set "Viegenere cipher")
@@ -30,7 +30,7 @@ and randomly. You can find it in path that you left for the "key" option.
 ![Printing help](src/images/printing_help.png)
 
 
-##Examples of using
+## Examples of using
 
 Let's see how to work with Vernam cipher:
 
