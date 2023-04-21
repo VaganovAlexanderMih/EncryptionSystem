@@ -7,6 +7,7 @@
   - [Installation](https://github.com/VaganovAlexanderMih/EncryptionSystem/tree/dev#installation)
   - [Quick Start after installation](https://github.com/VaganovAlexanderMih/EncryptionSystem/tree/dev#quick-start-after-installation)
 - [Examples of using](https://github.com/VaganovAlexanderMih/EncryptionSystem/tree/dev#examples-of-using)
+- [To do](https://github.com/VaganovAlexanderMih/EncryptionSystem/tree/dev#to-do)
 
 ## About
 
@@ -89,6 +90,6 @@ Output file:
 - [x] Caesar cipher and it's decryption
 - [x] Vernam cipher and it's decryption
 - [x] Vigenere cipher and it's decription
-- [] \(Optional) Graphic interface
-- [] \(Optional) Shorthand with images with extensions "png", "jpg" and "bmt"
-- [] \(Optional) Some other ciphers and decoders for them
+- [ ] \(Optional) Graphic interface
+- [ ] \(Optional) Shorthand with images with extensions "png", "jpg" and "bmt"
+- [ ] \(Optional) Some other ciphers and decoders for them
