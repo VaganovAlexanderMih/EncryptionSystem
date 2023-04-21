@@ -47,6 +47,8 @@ python3 main.py --help
 
 Let's see how to work with Vernam cipher:
 
+### Crypting
+
 Source file:
 
 ![Source](src/images/source.png)
@@ -62,3 +64,31 @@ Key file:
 Output file:
 
 ![Output](src/images/output.png)
+
+### Uncrypting
+
+Source file:
+
+![Source](src/images/output.png)
+
+Command sequence to launch the program:
+
+![Vernam decoder command](src/images/vernam_decoder_command.png)
+
+Key file:
+
+![Key](src/images/key.png)
+
+Output file:
+
+![Output](src/images/uncrypted_text.png)
+
+
+## To do
+
+- [x] Caesar cipher and it's decryption
+- [x] Vernam cipher and it's decryption
+- [x] Vigenere cipher and it's decription
+- [] \(Optional) Graphic interface
+- [] \(Optional) Shorthand with images with extensions "png", "jpg" and "bmt"
+- [] \(Optional) Some other ciphers and decoders for them
