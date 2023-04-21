@@ -1,6 +1,12 @@
 # Python encryption project.
 
 
+## Table of Contents
+- [About](https://github.com/VaganovAlexanderMih/EncryptionSystem/tree/dev#about)
+- [Installation]()
+- [Quick Start after installation]()
+- [Examples of using](https://github.com/VaganovAlexanderMih/EncryptionSystem/tree/dev#examples-of-using)
+
 ## About
 
 This [Encryption System](https://github.com/VaganovAlexanderMih/EncryptionSystem) can encrypt with the Caesar, Vigenere and Vernam ciphers,
@@ -10,17 +16,21 @@ When you use Vigenere and Vernam ciphers, the key is generating automatically
 and randomly. You can find it in path that you left for the "key" option.
 
 
-## Installation
+## Installation and use cases
 
-1. To run, go to the command line and type 
-2. "git clone --branch dev git@github.com:VaganovAlexanderMih/PythonProjects.git PythonProjects"
-3. "cd PythonProjects"
-4. "cd EncryptionSystem"
-5. "pip install -r requirements.txt".
-6. Then type "python3 main.py --help" to see all use cases.
+### Installation
+
+'''
+To run, go to the command line and type 
+"git clone --branch dev git@github.com:VaganovAlexanderMih/PythonProjects.git PythonProjects"
+"cd PythonProjects"
+"cd EncryptionSystem"
+"pip install -r requirements.txt".
+Then type "python3 main.py --help" to see all use cases.
+'''
 
 
-### How to use the program:
+### Quick Start after installation:
 
 - Write "--source" or "-s" to set source to the file that needed to be coded/decoded
 - Write "--cipher" or "-c" to set cipher/decoder (Caesar to set the "Caesar cipher" then offset, Vernam to set "Vernam cipher", Vigenere to set "Viegenere cipher")
