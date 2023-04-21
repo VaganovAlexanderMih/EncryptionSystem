@@ -31,7 +31,6 @@ pip install -r requirentments.txt
 python3 main.py --help
 ```
 
-
 ### Quick Start after installation:
 
 - Write "--source" or "-s" to set source to the file that needed to be coded/decoded
@@ -40,6 +39,8 @@ python3 main.py --help
 - Write "--decode" or "-d" to decode file (write nothing if you want to code it)
 
 ![Printing help](src/images/printing_help.png)
+
+![Printed lines after installation](src/images/printed_after_installation)
 
 
 ## Examples of using
