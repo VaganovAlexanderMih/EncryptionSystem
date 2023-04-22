@@ -34,7 +34,7 @@ def VernamCipher(string_, key_path, output):
 
 
 def CaesarCipher(string_, offset, output):
-    final_string = helpers.caesar_cipher_coder(special_symbols, string_, offset)
+    final_string = helpers.caesar_cipher_coder(string_, offset)
     # writing the line to output file
     crypted = open(output, "a+")
     crypted.write(final_string)

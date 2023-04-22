@@ -60,15 +60,13 @@ def DecoderVernamCipher(input_path, key_path, output_path):
 
 def DecoderCaesarCipherWithKey(input_path, offset, output_path):
     offset = -offset
-    special_symbols = [".", " ", ",", ":", "!", "?", "-",
-                       "(", ")", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ";"]
     uncrypted = open(output_path, "a")
     with open(input_path) as f:
         for string_ in f:
             # making string readable
             if string_.endswith('\n'):
                 string_ = string_[:-1]
-            final_string = helpers.caesar_cipher_coder(special_symbols, string_, offset)
+            final_string = helpers.caesar_cipher_coder(string_, offset)
         # writing the line to output file
             uncrypted.write(final_string)
             uncrypted.write('\n')

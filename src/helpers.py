@@ -53,12 +53,16 @@ def getting_random_key(string_, key_path):
     return result_key
 
 
-def caesar_cipher_coder(special_symbols, string_, offset):
+def caesar_cipher_coder(string_, offset):
+    if (string_.endswith("\n")):
+        string_ = string_[:-1]
     final_string = ""
+    special_symbols = [".", " ", ",", ":", "!", "?", "-",
+                       "(", ")", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ";", "'"]
     for letter in string_:
         # if the symbol is in syntactic signs, then we set a fixed value
-        if (letter in special_symbols.values()):
-            final_string += chr(ord(letter) + offset)
+        if (letter in special_symbols):
+            final_string += letter
             continue
 
         # else we set chars with offset
@@ -100,6 +104,7 @@ def vigenere_cipher_coder(special_symbols, string_, result_key):
 
 
 def getting_offset(inp, letter_counter, probability):
+        count_symbols = 0
         for string in inp:
             for letter in string:
                 # counting symbols
