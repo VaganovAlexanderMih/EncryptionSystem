@@ -2,13 +2,13 @@ import random
 import string
 import helpers
 
-special_symbols = {255: ".", 200: " ", 210: ",", 240: ":", 260: "!", 230: "?", 300: "-",
+special_symbols = {255: ".", 200: " ", 210: ",", 240: ":", 260: "!", 230: "?", 300: "-", 310: "'",
                    320: "(", 340: ")", 360: "0", 361: "1", 362: "2", 363: "3", 364: "4", 365: "5", 366: "6", 367: "7", 368: "8", 369: "9"}
 
 
 def VernamCipher(string_, key_path, output):
     # if first bits are nulls - delete
-    helpers.delete_first_nulls()
+    helpers.delete_first_nulls(string_)
 
     # getting random key
     result_key = helpers.getting_random_key(string_, key_path)
@@ -19,8 +19,8 @@ def VernamCipher(string_, key_path, output):
         string_ = string_[:-1]
     for i in range(len(string_)):
         # if the symbol is in syntactic signs, then we set a fixed value
-        if string_[i] in special_symbols.keys():
-            final_string += chr(special_symbols[string_[i]])
+        if string_[i] in special_symbols.values():
+            final_string += chr(list(filter(lambda x: special_symbols[x] == string_[i], special_symbols))[0])
             continue
         # else xoring symbol's bits with key's bits
         cur_char_bin = bin(ord(string_[i]))[2:]

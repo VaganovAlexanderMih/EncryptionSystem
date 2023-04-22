@@ -82,10 +82,12 @@ def caesar_cipher_coder(string_, offset):
 
 def vigenere_cipher_coder(special_symbols, string_, result_key):
     final_string = ""
+    if (string_.endswith("\n")):
+        string_ = string_[:-1]
     for i in range(len(string_)):
         # if the symbol is in syntactic signs, then we set a fixed value
-        if (string_[i] in special_symbols):
-            final_string += chr(special_symbols[string_[i]])
+        if (string_[i] in special_symbols.values()):
+            final_string += chr(list(filter(lambda x: special_symbols[x] == string_[i], special_symbols))[0])
             continue
 
         # else we using cipher algorithm on it
