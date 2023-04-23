@@ -1,11 +1,12 @@
-import Decoder
-import Cryptographer
 import sys
 import os
 
 cur_path = os.getcwd()
-cur_path += "/src"
+cur_path += "/src/"
 sys.path.insert(1, cur_path)
+
+import Decoder
+import Cryptographer
 
 source = ""
 cipher = ""
