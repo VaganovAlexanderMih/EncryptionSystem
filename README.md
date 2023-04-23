@@ -7,6 +7,7 @@
   - [Installation](https://github.com/VaganovAlexanderMih/EncryptionSystem/tree/dev#installation)
   - [Quick Start after installation](https://github.com/VaganovAlexanderMih/EncryptionSystem/tree/dev#quick-start-after-installation)
 - [Examples of using](https://github.com/VaganovAlexanderMih/EncryptionSystem/tree/dev#examples-of-using)
+- [Recently added]()
 - [To do](https://github.com/VaganovAlexanderMih/EncryptionSystem/tree/dev#to-do)
 
 ## About
@@ -34,10 +35,11 @@ python3 main.py --help
 
 ### Quick Start after installation:
 
-- Write "--source" or "-s" to set source to the file that needed to be coded/decoded
-- Write "--cipher" or "-c" to set cipher/decoder (Caesar to set the "Caesar cipher" then offset, Vernam to set "Vernam cipher", Vigenere to set "Viegenere cipher")
-- Write "--output" or "-o" to set output file
-- Write "--decode" or "-d" to decode file (write nothing if you want to code it)
+Just run next command to know about the syntax and possibilities:
+
+```
+man ./EncryptionSystem
+```
 
 ![Printing help](src/images/printing_help.png)
 
@@ -85,7 +87,12 @@ Output file:
 ![Output](src/images/uncrypted_text.png)
 
 
-## To do
+## Recently added:
+- basic functionality
+- manual for program
+
+
+## To do:
 
 - [x] Caesar cipher and it's decryption
 - [x] Vernam cipher and it's decryption

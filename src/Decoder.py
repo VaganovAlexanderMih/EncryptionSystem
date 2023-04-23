@@ -1,5 +1,6 @@
 import helpers
 
+
 def DecoderVernamCipher(input_path, key_path, output_path):
     # helpers
     def xor_char(char1_bin, char2_bin):
@@ -26,9 +27,28 @@ def DecoderVernamCipher(input_path, key_path, output_path):
             final_str += str(i)
         return final_str
 
-    special_symbols = {255: ".", 200: " ", 210: ",", 240: ":", 260: "!", 230: "?", 300: "-",
-                       310: "'", 320: "(", 340: ")", 360: "0", 361: "1", 362: "2", 363: "3",
-                       364: "4", 365: "5", 366: "6", 367: "7", 368: "8", 369: "9"}
+    special_symbols = {
+        255: ".",
+        200: " ",
+        210: ",",
+        240: ":",
+        260: "!",
+        230: "?",
+        300: "-",
+        310: "'",
+        320: "(",
+        340: ")",
+        360: "0",
+        361: "1",
+        362: "2",
+        363: "3",
+        364: "4",
+        365: "5",
+        366: "6",
+        367: "7",
+        368: "8",
+        369: "9",
+    }
 
     # decoder
     key_file = open(key_path, "r")
@@ -64,26 +84,74 @@ def DecoderCaesarCipherWithKey(input_path, offset, output_path):
     with open(input_path) as f:
         for string_ in f:
             # making string readable
-            if string_.endswith('\n'):
+            if string_.endswith("\n"):
                 string_ = string_[:-1]
             final_string = helpers.caesar_cipher_coder(string_, offset)
-        # writing the line to output file
+            # writing the line to output file
             uncrypted.write(final_string)
-            uncrypted.write('\n')
+            uncrypted.write("\n")
     uncrypted.close()
 
 
 def DecoderCaesarCipherWithoutKey(input_path, output_path):
     # normal character distribution
-    probability = {'a': 8.1, 'b': 1.4, 'c': 2.7, 'd': 3.9, 'e': 13, 'f': 2.9, 'g': 2,
-                   'h': 5.2, 'i': 6.5, 'j': 0.2, 'k': 0.4, 'l': 3.4,'m': 2.5, 'n': 7.2,
-                   'o': 7.9, 'p': 2, 'q': 0.2, 'r': 6.9, 's': 6.1, 't': 10.5, 'u': 2.4,
-                   'v': 0.9, 'w': 1.5, 'x': 0.2, 'y': 1.9, 'z': 0.1}
+    probability = {
+        "a": 8.1,
+        "b": 1.4,
+        "c": 2.7,
+        "d": 3.9,
+        "e": 13,
+        "f": 2.9,
+        "g": 2,
+        "h": 5.2,
+        "i": 6.5,
+        "j": 0.2,
+        "k": 0.4,
+        "l": 3.4,
+        "m": 2.5,
+        "n": 7.2,
+        "o": 7.9,
+        "p": 2,
+        "q": 0.2,
+        "r": 6.9,
+        "s": 6.1,
+        "t": 10.5,
+        "u": 2.4,
+        "v": 0.9,
+        "w": 1.5,
+        "x": 0.2,
+        "y": 1.9,
+        "z": 0.1,
+    }
     count_symbols = 0
-    letter_counter = {'a': 0, 'b': 0, 'c': 0, 'd': 0, 'e': 0, 'f': 0, 'g': 0, 'h': 0,
-                      'i': 0, 'j': 0, 'k': 0, 'l': 0, 'm': 0, 'n': 0, 'o': 0, 'p': 0,
-                      'q': 0, 'r': 0, 's': 0, 't': 0, 'u': 0, 'v': 0, 'w': 0, 'x': 0,
-                      'y': 0, 'z': 0}
+    letter_counter = {
+        "a": 0,
+        "b": 0,
+        "c": 0,
+        "d": 0,
+        "e": 0,
+        "f": 0,
+        "g": 0,
+        "h": 0,
+        "i": 0,
+        "j": 0,
+        "k": 0,
+        "l": 0,
+        "m": 0,
+        "n": 0,
+        "o": 0,
+        "p": 0,
+        "q": 0,
+        "r": 0,
+        "s": 0,
+        "t": 0,
+        "u": 0,
+        "v": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0,
+        "z": 0,
+    }
     with open(input_path) as inp:
         offset = helpers.getting_offset(inp, letter_counter, probability)
         DecoderCaesarCipherWithKey(input_path, offset, output_path)
@@ -91,9 +159,28 @@ def DecoderCaesarCipherWithoutKey(input_path, output_path):
 
 def DecoderVigenereCipher(input_path, key_path, output_path):
 
-    special_symbols = {255: ".", 200: " ", 210: ",", 240: ":", 260: "!", 230: "?", 300: "-",
-                       310: "'", 320: "(", 340: ")", 360: "0", 361: "1", 362: "2", 363: "3",
-                       364: "4", 365: "5", 366: "6", 367: "7", 368: "8", 369: "9"}
+    special_symbols = {
+        255: ".",
+        200: " ",
+        210: ",",
+        240: ":",
+        260: "!",
+        230: "?",
+        300: "-",
+        310: "'",
+        320: "(",
+        340: ")",
+        360: "0",
+        361: "1",
+        362: "2",
+        363: "3",
+        364: "4",
+        365: "5",
+        366: "6",
+        367: "7",
+        368: "8",
+        369: "9",
+    }
 
     key_file = open(key_path, "r")
     text = open(output_path, "a")
@@ -108,20 +195,20 @@ def DecoderVigenereCipher(input_path, key_path, output_path):
                 string = string[:-1]
             for i in range(len(string)):
                 # if the symbol is in syntactic signs, then we set a fixed value
-                if (ord(string[i]) in special_symbols):
+                if ord(string[i]) in special_symbols:
                     final_string += special_symbols[ord(string[i])]
                     continue
                 # else decoding symbols using key symbols
-                if (string[i].lower() == string[i]):
-                    letter_ind = ord(string[i]) - ord('a')
-                    letter_ind -= (ord(key[i]) - ord('a'))
-                    letter_ind %= (ord('z') - ord('a'))
-                    letter_ind += ord('a')
+                if string[i].lower() == string[i]:
+                    letter_ind = ord(string[i]) - ord("a")
+                    letter_ind -= ord(key[i]) - ord("a")
+                    letter_ind %= ord("z") - ord("a")
+                    letter_ind += ord("a")
                 else:
-                    letter_ind = ord(string[i]) - ord('A')
-                    letter_ind -= (ord(key[i]) - ord('A'))
-                    letter_ind %= (ord('Z') - ord('A'))
-                    letter_ind += ord('A')
+                    letter_ind = ord(string[i]) - ord("A")
+                    letter_ind -= ord(key[i]) - ord("A")
+                    letter_ind %= ord("Z") - ord("A")
+                    letter_ind += ord("A")
                 final_string += chr(letter_ind)
             # writing the line to output file
             text.write(final_string)
