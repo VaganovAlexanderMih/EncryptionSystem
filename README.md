@@ -7,7 +7,7 @@
   - [Installation](https://github.com/VaganovAlexanderMih/EncryptionSystem/tree/dev#installation)
   - [Quick Start after installation](https://github.com/VaganovAlexanderMih/EncryptionSystem/tree/dev#quick-start-after-installation)
 - [Examples of using](https://github.com/VaganovAlexanderMih/EncryptionSystem/tree/dev#examples-of-using)
-- [Recently added]()
+- [Recently added](https://github.com/VaganovAlexanderMih/EncryptionSystem/tree/dev#recently-added)
 - [To do](https://github.com/VaganovAlexanderMih/EncryptionSystem/tree/dev#to-do)
 
 ## About
