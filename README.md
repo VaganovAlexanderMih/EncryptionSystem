@@ -88,8 +88,10 @@ Output file:
 
 
 ## Recently added:
-- basic functionality
-- manual for program
+- Basic functionality
+- Manual for program
+- Steganography with images with extensions "png", "jpg" and "bmt"
+- Some other ciphers and decoders for them
 
 
 ## To do:
@@ -98,5 +100,5 @@ Output file:
 - [x] Vernam cipher and it's decryption
 - [x] Vigenere cipher and it's decription
 - [ ] \(Optional) Graphic interface
-- [x] \(Optional) Shorthand with images with extensions "png", "jpg" and "bmt"
+- [x] \(Optional) Steganography with images with extensions "png", "jpg" and "bmt"
 - [x] \(Optional) Some other ciphers and decoders for them
