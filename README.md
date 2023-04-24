@@ -12,7 +12,7 @@
 
 ## About
 
-This [Encryption System](https://github.com/VaganovAlexanderMih/EncryptionSystem) can encrypt with the Caesar, Vigenere and Vernam ciphers,
+This [Encryption System](https://github.com/VaganovAlexanderMih/EncryptionSystem) can encrypt with the Caesar, Vigenere, Vernam and Columnar ciphers,
 as well as decrypt them, and the Caesar cipher can be decrypted both with the use of a key (offset)
 and without it (using the method of frequency analysis)
 When you use Vigenere and Vernam ciphers, the key is generating automatically

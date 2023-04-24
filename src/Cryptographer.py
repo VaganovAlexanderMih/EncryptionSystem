@@ -1,4 +1,6 @@
 import helpers
+from PIL import Image
+
 
 special_symbols = {
     255: ".",
@@ -79,3 +81,59 @@ def VigenereCipher(string_, key_path, output):
     crypted.write(final_string)
     crypted.write("\n")
     crypted.close()
+
+def ColumnarCipher(string_, key_path, output):
+    new_key = helpers.GettingKeyCrypto(key_path)
+    
+    # making key and string readable 
+    if (string_.endswith("\n")):
+        string_ = string_[:-1]
+    if (new_key.endswith("\n")):
+        new_key = new_key[:-1]
+
+    if (len(string_) // len(new_key) <= len(new_key)):
+        size = len(new_key)
+    else:
+        size = len(string_) // len(new_key)
+
+    matrix = []
+
+    # creating matrix
+
+    for i in range(len(new_key)):
+        temp_matrix = []
+        for j in range(size):
+            temp_matrix.append("-")
+        matrix.append(temp_matrix)
+    
+    for i in range(len(string_)):
+        matrix[i // len(new_key)][i % len(new_key)] = string_[i]
+    
+    # encoding the string using matrix and key
+    new_string = ""
+    sorted_key = sorted(new_key)
+    for letter in sorted_key:
+        index = new_key.index(letter)
+        for j in range(len(matrix)):
+            new_string += matrix[j][index]
+    
+    f = open(output, "+a")
+    f.write(new_string)
+    f.write("\n")
+    f.close()
+
+
+def ImageCiphers(image_path, text_path, output_path):
+    image = Image.open(image_path, "r")
+    new_image = image.copy()
+    text = ""
+    f = open(text_path, "r")
+    for string in f:
+        text += string
+    f.close()
+    size_mod = new_image.size[0]
+    position = 0
+    for pixel in helpers.ChangePixel(new_image.getdata(), text):
+        new_image.putpixel((position % (size_mod - 1), position // (size_mod - 1)), pixel)
+        position += 1
+    new_image.save(output_path, str(output_path.split(".")[-1]))

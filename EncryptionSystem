@@ -12,7 +12,7 @@ main.py \- Encryption System for crypting and decoding text
 [ -d / --decode ]
 [ DECODE FILE OR NOT ]
 .SH DESCRIPTION
-This Encryption System can encrypt with the Caesar, Vigenere and Vernam ciphers, as well as decrypt them, and the Caesar cipher can be decrypted both with the use of a key (offset) and without it (using the method of frequency analysis) When you use Vigenere and Vernam ciphers, the key is generating automatically and randomly. You can find it in path that you left for the "key" option.
+This Encryption System can encrypt with the Caesar, Vigenere, Vernam, Columnar ciphers and Steganography, as well as decrypt them, and the Caesar cipher can be decrypted both with the use of a key (offset) and without it (using the method of frequency analysis) When you use Vigenere and Vernam ciphers, the key is generating automatically and randomly. You can find it in path that you left for the "key" option.
 .SH OPTIONS
 .TP
 .BR -s / --source

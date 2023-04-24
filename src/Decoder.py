@@ -1,4 +1,5 @@
 import helpers
+from PIL import Image
 
 
 def DecoderVernamCipher(input_path, key_path, output_path):
@@ -27,28 +28,11 @@ def DecoderVernamCipher(input_path, key_path, output_path):
             final_str += str(i)
         return final_str
 
-    special_symbols = {
-        255: ".",
-        200: " ",
-        210: ",",
-        240: ":",
-        260: "!",
-        230: "?",
-        300: "-",
-        310: "'",
-        320: "(",
-        340: ")",
-        360: "0",
-        361: "1",
-        362: "2",
-        363: "3",
-        364: "4",
-        365: "5",
-        366: "6",
-        367: "7",
-        368: "8",
-        369: "9",
-    }
+    special_symbols = { 255: ".", 200: " ", 210: ",", 240: ":", 260: "!",
+                        230: "?", 300: "-", 310: "'", 320: "(", 340: ")",
+                        360: "0", 361: "1", 362: "2", 363: "3", 364: "4",
+                        365: "5", 366: "6", 367: "7", 368: "8", 369: "9",
+                      }
 
     # decoder
     key_file = open(key_path, "r")
@@ -95,63 +79,17 @@ def DecoderCaesarCipherWithKey(input_path, offset, output_path):
 
 def DecoderCaesarCipherWithoutKey(input_path, output_path):
     # normal character distribution
-    probability = {
-        "a": 8.1,
-        "b": 1.4,
-        "c": 2.7,
-        "d": 3.9,
-        "e": 13,
-        "f": 2.9,
-        "g": 2,
-        "h": 5.2,
-        "i": 6.5,
-        "j": 0.2,
-        "k": 0.4,
-        "l": 3.4,
-        "m": 2.5,
-        "n": 7.2,
-        "o": 7.9,
-        "p": 2,
-        "q": 0.2,
-        "r": 6.9,
-        "s": 6.1,
-        "t": 10.5,
-        "u": 2.4,
-        "v": 0.9,
-        "w": 1.5,
-        "x": 0.2,
-        "y": 1.9,
-        "z": 0.1,
-    }
-    count_symbols = 0
-    letter_counter = {
-        "a": 0,
-        "b": 0,
-        "c": 0,
-        "d": 0,
-        "e": 0,
-        "f": 0,
-        "g": 0,
-        "h": 0,
-        "i": 0,
-        "j": 0,
-        "k": 0,
-        "l": 0,
-        "m": 0,
-        "n": 0,
-        "o": 0,
-        "p": 0,
-        "q": 0,
-        "r": 0,
-        "s": 0,
-        "t": 0,
-        "u": 0,
-        "v": 0,
-        "w": 0,
-        "x": 0,
-        "y": 0,
-        "z": 0,
-    }
+    probability = { "a": 8.1, "b": 1.4, "c": 2.7, "d": 3.9, "e": 13, "f": 2.9,
+                    "g": 2, "h": 5.2, "i": 6.5, "j": 0.2, "k": 0.4, "l": 3.4,
+                    "m": 2.5, "n": 7.2, "o": 7.9, "p": 2, "q": 0.2, "r": 6.9,
+                    "s": 6.1, "t": 10.5, "u": 2.4, "v": 0.9, "w": 1.5,
+                    "x": 0.2, "y": 1.9, "z": 0.1,
+                  }
+    letter_counter = { "a": 0, "b": 0, "c": 0, "d": 0, "e": 0, "f": 0, "g": 0,
+                       "h": 0, "i": 0, "j": 0, "k": 0, "l": 0, "m": 0, "n": 0,
+                       "o": 0, "p": 0, "q": 0, "r": 0, "s": 0, "t": 0, "u": 0,
+                       "v": 0, "w": 0, "x": 0, "y": 0, "z": 0,
+                     }
     with open(input_path) as inp:
         offset = helpers.getting_offset(inp, letter_counter, probability)
         DecoderCaesarCipherWithKey(input_path, offset, output_path)
@@ -159,28 +97,11 @@ def DecoderCaesarCipherWithoutKey(input_path, output_path):
 
 def DecoderVigenereCipher(input_path, key_path, output_path):
 
-    special_symbols = {
-        255: ".",
-        200: " ",
-        210: ",",
-        240: ":",
-        260: "!",
-        230: "?",
-        300: "-",
-        310: "'",
-        320: "(",
-        340: ")",
-        360: "0",
-        361: "1",
-        362: "2",
-        363: "3",
-        364: "4",
-        365: "5",
-        366: "6",
-        367: "7",
-        368: "8",
-        369: "9",
-    }
+    special_symbols = { 255: ".", 200: " ", 210: ",", 240: ":", 260: "!",
+                        230: "?", 300: "-", 310: "'", 320: "(", 340: ")",
+                        360: "0", 361: "1", 362: "2", 363: "3", 364: "4",
+                        365: "5", 366: "6", 367: "7", 368: "8", 369: "9",
+                      }
 
     key_file = open(key_path, "r")
     text = open(output_path, "a")
@@ -214,3 +135,69 @@ def DecoderVigenereCipher(input_path, key_path, output_path):
             text.write(final_string)
             text.write("\n")
     text.close()
+
+
+def DecoderColumnarCipher(source, key_path, output):
+    key_file = open(key_path, "r")
+    with open(source) as inp:
+        for string in inp:
+            # getting key
+            key = key_file.readline()
+            new_key = helpers.GettingKeyDecode(key)
+            # daking key and string readable
+            if (string.endswith("\n")):
+                string = string[:-1]
+            if (new_key.endswith("\n")):
+                new_key = new_key[:-1]
+
+            matrix=[['' for i in range(len(new_key))]
+                for j in range(int(len(string)/len(new_key)))]
+            
+            new_string = ""
+            sorted_key = sorted(new_key)
+
+            # decoding the string using matrix and key
+            ind = 0
+            for letter in sorted_key:
+                index = new_key.index(letter)
+                for i in range(len(new_key)):
+                    matrix[i][index] = string[ind]
+                    ind += 1
+            
+            for i in range(ind):
+                new_string += matrix[i // len(new_key)][i % (len(string) // len(new_key))]
+
+            # deleting the fragments of decoding
+            while(new_string.endswith("-")):
+                new_string = new_string[:-1]
+
+            f = open(output, "+a")
+            f.write(new_string)
+            f.write("\n")
+            f.close()
+
+
+def DecoderImage(image_path, output_path):
+    image = Image.open(image_path, "r")
+    text = ""
+    image_data = iter(image.getdata())
+
+    while (True):
+        pixels = [value for value in image_data.__next__()[:3] +
+                                image_data.__next__()[:3] +
+                                image_data.__next__()[:3]]
+        text_binary = ""
+        for pixel_byte in pixels[:8]:
+            if (pixel_byte % 2 == 0):
+                text_binary += "0"
+            else:
+                text_binary += "1"
+        text += chr(int(text_binary, 2))
+        if (pixels[-1] % 2 != 0):
+            break
+
+    f = open(output_path, "+a")
+    f.write(text)
+    f.close()
+
+DecoderImage("../the_end_crypted2.png", "../OUTPUT.txt")

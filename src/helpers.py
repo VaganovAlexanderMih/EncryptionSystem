@@ -1,5 +1,6 @@
 import random
 import string
+from PIL import Image
 
 
 def xor_char(char1_bin, char2_bin):
@@ -57,29 +58,9 @@ def caesar_cipher_coder(string_, offset):
     if string_.endswith("\n"):
         string_ = string_[:-1]
     final_string = ""
-    special_symbols = [
-        ".",
-        " ",
-        ",",
-        ":",
-        "!",
-        "?",
-        "-",
-        "(",
-        ")",
-        "0",
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        ";",
-        "'",
-    ]
+    special_symbols = [ ".", " ", ",", ":", "!", "?", "-", "(", ")", "0", "1",
+                        "2", "3", "4", "5", "6", "7", "8", "9", ";", "'",
+                      ]
     for letter in string_:
         # if the symbol is in syntactic signs, then we set a fixed value
         if letter in special_symbols:
@@ -169,3 +150,72 @@ def getting_offset(inp, letter_counter, probability):
                 offset = offsets[i - 1]
             count = 0
     return offset
+
+
+def GettingKeyCrypto(key_path):
+    print("Insert the Key, please (not neccessary it's length to be the same as the crypted text)")
+    key = str(input())
+    f = open(key_path, "+a")
+    f.write(key)
+    f.write("\n")
+    f.close()
+    temp_key = []
+    for letter in key:
+        if (letter in temp_key):
+            continue
+        temp_key.append(letter)
+    
+    new_key = ""
+    for letter in temp_key:
+        new_key += letter
+    return new_key
+
+def GettingKeyDecode(key):
+    temp_key = []
+    for letter in key:
+        if (letter in temp_key):
+            continue
+        temp_key.append(letter)
+    
+    new_key = ""
+    for letter in temp_key:
+        new_key += letter
+    return new_key
+
+
+def ChangeByte(text_array, pixel, i, j):
+    if (text_array[i][j] == "0" and pixel[j] % 2 == 1):
+        pixel[j] -= 1
+    elif (text_array[i][j] == "1" and pixel[j] % 2 == 0):
+        if (pixel[j] != 0):
+            pixel[j] -= 1
+        else:
+            pixel[j] += 1
+
+
+def ChangePixel(pixel, text):
+    text_array = []
+    for i in text:
+        text_array.append(format(ord(i), '08b'))
+    imdata = iter(pixel)
+    for i in range(len(text_array)):
+        pixel = [value for value in imdata.__next__()[:3] +
+                                imdata.__next__()[:3] +
+                                imdata.__next__()[:3]]
+        for j in range(8):
+            ChangeByte(text_array, pixel, i, j)
+    
+        if (i == len(text_array) - 1):
+            if (pixel[-1] % 2 == 0):
+                if (pixel[-1] != 0):
+                    pixel[-1] -= 1
+                else:
+                    pixel[-1] += 1
+        else:
+            if (pixel[-1] % 2 != 0):
+                pixel[-1] -= 1
+        
+        pixel = tuple(pixel)
+        yield pixel[0:3]
+        yield pixel[3:6]
+        yield pixel[6:9]
