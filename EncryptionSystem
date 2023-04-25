@@ -1,0 +1,28 @@
+.TH Encryption System
+.SH NAME
+main.py \- Encryption System for crypting and decoding text
+.SH SYNOPSIS
+.B main.py
+[ -s / --source ]
+[ FILE TEXT SOURCE ]
+[ -c / --cipher ]
+[ CIPHER ]
+[ -o / --output ]
+[ FILE TEXT OUTPUT ]
+[ -d / --decode ]
+[ DECODE FILE OR NOT ]
+.SH DESCRIPTION
+This Encryption System can encrypt with the Caesar, Vigenere, Vernam, Columnar ciphers and Steganography, as well as decrypt them, and the Caesar cipher can be decrypted both with the use of a key (offset) and without it (using the method of frequency analysis) When you use Vigenere and Vernam ciphers, the key is generating automatically and randomly. You can find it in path that you left for the "key" option.
+.SH OPTIONS
+.TP
+.BR -s / --source
+[ FILE TEXT SOURCE ] Sets the path to the file that needed to be encrypted / decoded
+.TP
+.BR -c / --cipher
+[ CIPHER ] Sets the cipher model which should encrypt / decode the text
+.TP
+.BR -o / --output
+[ FILE TEXT OUTPUT ] Sets the path to the file where the system will write the encrypted / decoded text
+.TP
+.BR -d / --decode
+[ DECODE FILE OR NOT ] Sets the flag that the source file should be decoded with the chosen cipher
