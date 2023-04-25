@@ -1,2 +1,2 @@
 python_version>="3.8"
-pysimplegui=="4.60.4"
+pysimplegui==4.60.4
