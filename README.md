@@ -18,6 +18,8 @@ and without it (using the method of frequency analysis)
 When you use Vigenere and Vernam ciphers, the key is generating automatically
 and randomly. You can find it in path that you left for the "key" option.
 
+It has graphic interface and console application. You can choose the version at the beginning of the session.
+
 
 ## Installation and use cases
 
@@ -92,6 +94,7 @@ Output file:
 - Manual for program
 - Steganography with images with extensions "png", "jpg" and "bmt"
 - Some other ciphers and decoders for them
+- Graphic Interface
 
 
 ## To do:
@@ -99,6 +102,6 @@ Output file:
 - [x] Caesar cipher and it's decryption
 - [x] Vernam cipher and it's decryption
 - [x] Vigenere cipher and it's decription
-- [ ] \(Optional) Graphic interface
+- [x] \(Optional) Graphic interface
 - [x] \(Optional) Steganography with images with extensions "png", "jpg" and "bmt"
 - [x] \(Optional) Some other ciphers and decoders for them

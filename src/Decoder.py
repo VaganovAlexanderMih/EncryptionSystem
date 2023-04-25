@@ -199,5 +199,3 @@ def DecoderImage(image_path, output_path):
     f = open(output_path, "+a")
     f.write(text)
     f.close()
-
-DecoderImage("../the_end_crypted2.png", "../OUTPUT.txt")
