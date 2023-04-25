@@ -153,12 +153,8 @@ def getting_offset(inp, letter_counter, probability):
 
 
 def GettingKeyCrypto(key_path):
-    print("Insert the Key, please (not neccessary it's length to be the same as the crypted text)")
-    key = str(input())
-    f = open(key_path, "+a")
-    f.write(key)
-    f.write("\n")
-    f.close()
+    f = open(key_path, "r")
+    key = f.readline()
     temp_key = []
     for letter in key:
         if (letter in temp_key):
