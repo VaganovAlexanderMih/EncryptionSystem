@@ -47,6 +47,9 @@ man ./EncryptionSystem
 
 ![Printed lines after installation](src/images/printed_after_installation.png)
 
+As you can see, the program is waiting for your answer. On this stage you have
+to choose, what type of program you wish to use: graphic or console application.
+
 
 ## Examples of using
 
